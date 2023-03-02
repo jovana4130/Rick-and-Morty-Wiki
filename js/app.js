@@ -1,15 +1,39 @@
-import { getApiResult } from "./data.js";
-import { resetResult, showOnPage } from "./ui.js";
+import { renderHomePage, renderCharPage } from "./ui.js";
+import { getCharacters, getCharCard, state, getPageItems } from "./data.js";
 
-const $buttPrevious = document.querySelector("#previous");
-const $buttOne = document.querySelector("#one");
-const $buttTwo = document.querySelector("#two");
-const $buttThree = document.querySelector("#three");
-const $buttNext = document.querySelector("#next");
+const mainContentEl = document.querySelector("#main-content");
+const homeEl = document.querySelector("#home");
 
-document.addEventListener("DOMContentLoaded", function () {
-  onLoad();
-  $buttNext.addEventListener("click", onLoad);
-  $buttPrevious.addEventListener('click', previous);
+const onHomeClick = () => {
+    getCharacters().then((chars) => {
+        state.allCharacters = chars;
+        const paginateItems = getPageItems(state.curentPage, state.allCharacters);
+        renderHomePage(paginateItems);
+    });
+};
+    
+const onCharCardClick = (event) => {
+    const targetEl = event.target.parentElement.parentElement;
+    if (targetEl.getAttribute("class") !== "char-item") {
+        return;
+    }
+    console.log(targetEl, event.target);
+    const id = targetEl.getAttribute("id");
+    getCharCard(id)
+    .then((char) => {
+        renderCharPage(char);
+    });
+};
 
-});
+const onLikeButtonClick = (event) => {
+    if (event.target.getAttribute("class") !== "btn") {
+        return;
+    }
+    event.target.classList.toggle("liked");
+};
+
+onHomeClick();
+
+mainContentEl.addEventListener("click", onCharCardClick);
+homeEl.addEventListener("click", onHomeClick);
+mainContentEl.addEventListener("click", onLikeButtonClick);
