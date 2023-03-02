@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+#main-content {
+    height: 100%;
+    background-image: url(./background-image/8rc57d4ds44gqzau.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-bottom: 20px;
+}
+
+.btn {
+    width: 70%;
+    height: 60%;
+    font-weight: 600;
+    border: solid 1px rgb(95, 184, 211);
+    color: rgb(95, 184, 211);
+}
+
+.btn:hover, .liked {
+    color: white;
+    background-color: rgb(95, 184, 211);
+}
+
+#home{
+    cursor: pointer;
+}
+
+.card {
+    width: 30%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.char-image {
+    width: 100%;
+}
+
+.card-img-top {
+    cursor: pointer;
+}
+
+.card-title {
+    height: 20%;
+    cursor: pointer;
+}
+
+.char-item {
+    width: 20vw;
+    height: 50vh;
+    padding-bottom: 55px;
+}
