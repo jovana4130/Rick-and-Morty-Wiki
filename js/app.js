@@ -1,39 +1,70 @@
-import { renderHomePage, renderCharPage } from "./ui.js";
-import { getCharacters, getCharCard, state, getPageItems } from "./data.js";
+const homeButtonEl = document.querySelector("#home-button")
+const mainContentWrapper = document.querySelector("#main-content");
+const searchInput = document.querySelector("#search-input")
+const searchDropdownEl = document.querySelector("#search-dropdown")
 
-const mainContentEl = document.querySelector("#main-content");
-const homeEl = document.querySelector("#home");
+import {getCharacters} from './data.js'
+import {getSingleCharacter} from './data.js'
+import  {searchCharacter} from './data.js'
 
-const onHomeClick = () => {
-    getCharacters().then((chars) => {
-        state.allCharacters = chars;
-        const paginateItems = getPageItems(state.curentPage, state.allCharacters);
-        renderHomePage(paginateItems);
+import {renderHomePage} from './ui.js'
+import {renderSingleCharacterPage} from './ui.js'
+import {renderSearchDropdown} from './ui.js'
+import {clearDropdown} from './ui.js'
+
+
+const onSearch = (e) => {
+    const term = e.target.value;
+    searchCharacter(term).then((character) => {  
+    clearDropdown();
+    renderSearchDropdown(character);
     });
-};
-    
-const onCharCardClick = (event) => {
-    const targetEl = event.target.parentElement.parentElement;
-    if (targetEl.getAttribute("class") !== "char-item") {
+  };
+
+const onSearchDropdownClick = (e) => {
+    if (e.target.getAttribute('class') !== 'search-item'){
+      return;
+    }
+    const id = e.target.getAttribute("id");
+    clearDropdown();
+    getSingleCharacter(id).then((character) => {
+      renderSingleCharacterPage(character)
+    }); 
+  }
+
+
+const onClickHomeButtonHandler = () => {
+    getCharacters().then((character) => {
+      renderHomePage(character);
+    })
+  }
+
+const onSingleCharacterClick = (e) => {
+    const target = e.target
+    const targetEl = e.target.parentElement;
+    if (targetEl.getAttribute('class') !== 'character-item'){
         return;
     }
-    console.log(targetEl, event.target);
-    const id = targetEl.getAttribute("id");
-    getCharCard(id)
-    .then((char) => {
-        renderCharPage(char);
-    });
-};
-
-const onLikeButtonClick = (event) => {
-    if (event.target.getAttribute("class") !== "btn") {
-        return;
+    if(target.getAttribute('id') === 'gateway' ){
+        const id = targetEl.getAttribute('id');
+        getSingleCharacter(id).then((character) =>{
+            renderSingleCharacterPage(character);
+        })
     }
-    event.target.classList.toggle("liked");
+}
+
+const toggleLikeButtonColor = (e) => {
+  const likeButton = e.target;
+  if (!likeButton.classList.contains('like')) {
+    return;
+  }
+  likeButton.classList.toggle('clicked');
 };
 
-onHomeClick();
-
-mainContentEl.addEventListener("click", onCharCardClick);
-homeEl.addEventListener("click", onHomeClick);
-mainContentEl.addEventListener("click", onLikeButtonClick);
+  
+onClickHomeButtonHandler();
+homeButtonEl.addEventListener('click',onClickHomeButtonHandler);
+mainContentWrapper.addEventListener('click', onSingleCharacterClick);
+mainContentWrapper.addEventListener('click',toggleLikeButtonColor);
+searchInput.addEventListener('keyup', onSearch);
+searchDropdownEl.addEventListener('click', onSearchDropdownClick);

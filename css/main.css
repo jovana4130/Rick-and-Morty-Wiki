@@ -1,57 +1,281 @@
 * {
-    margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
 }
 
-#main-content {
-    height: 100%;
-    background-image: url(./background-image/rick-and-morty-pickle-rick-wallpaper-scaled.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding-bottom: 20px;
+#wrapper {
+    background-image: url("../images/./103681-Rick-and-Morty-space-planet-planetary-rings.png");
+    height: 100vh;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
 }
 
-.btn {
-    width: 70%;
-    height: 60%;
-    font-weight: 600;
-    border: solid 1px rgb(95, 184, 211);
-    color: rgb(95, 184, 211);
-}
-
-.btn:hover, .liked {
+#header {
+    height: 7vh;
+    background-color: #242424;
     color: white;
-    background-color: rgb(95, 184, 211);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 30px;
+    align-self: stretch;
 }
 
-#home{
+#search-wrapper {
+    position: relative;
+    width: 200px;
+}
+
+#search-dropdown {
+    color: black;
+    background-color: white;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 10px;
+}
+
+#search-wrapper input {
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 20px;
+}
+  
+.search-item {
+    border-bottom: 1px solid #3c3b3b;
+}
+
+.search-item:hover {
+    color: #03afc9;
+}
+
+#home-button {
     cursor: pointer;
 }
 
-.card {
-    width: 30%;
-    margin: 0 auto;
-    height: 100%;
+#home-button:hover {
+    color: #03afc9;
+}
+  
+#main-content {
+    height: calc(100vh - 14vh);
+    scroll-behavior: smooth;
 }
 
-.char-image {
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+    background-color: #242424;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
     width: 100%;
 }
 
-.card-img-top {
+  /* Character Styling */
+#character-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 70vw;
+    gap: 10px;
+    padding: 24px 0 0 24px;
+}
+
+.character-item {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    margin-bottom: 5%;
+    width: 30%;
+    border-radius: 13px;
+}
+
+.character-item img:hover, .character-item div:hover {
+    cursor: pointer;
+}
+  
+.character-item p {
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.character-item img {
+    width: 90%;
+    padding-top: 5%;
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: green;
+    width: 50%;
+    font-size: 20px;
+    border: 1px solid green;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 3px #003300;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
-.card-title {
-    height: 20%;
-    cursor: pointer;
+.fa-thumbs-up {
+    border: none;
+    text-align: center;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+  
+.clicked {
+    background-color: green;
+    color: white;
+}
+  
+.detail-wrapper {
+    background-color: white;
+    height: 85vh;
+    width: 50vw;
+    border: 5px solid #03afc9;
+    padding: 5px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
 }
 
-.char-item {
-    width: 20vw;
-    height: 50vh;
-    padding-bottom: 55px;
+.detail-wrapper h1, h2 {
+    font-size: 50px;
+    background-color: #03afc9;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.single-page-image {
+    width: 50%;
+    height: 60%;
+    align-self: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.bio {
+    height: 60%;
+    width: 100%;
+}
+
+.bio h2 {
+    font-size: 40px;
+}
+
+.bio-extra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 18%;
+    gap: 20px;
+}
+
+.darkerBg {
+    font-size: 30px;
+    text-align: center;
+    width: 50%;
+    background-color: #f5f4e5;
+    color: #3d98ac;
+    font-weight: bold;
+}
+
+.ligherBg {
+    font-size: 30px;
+    width: 50%;
+    background-color: #f3f2e4;
+    color: #4cbad6;
+    text-align: center;
+}
+
+
+/* media queries */
+
+@media (max-width: 1024px) {
+    .like {
+      width: auto;
+    }
+    .character-item {
+      width: 45%;
+}
+  
+@media (max-width: 1024px) {
+    .detail-wrapper {
+      margin-top: 10px;
+      width: 100%;
+      height: 80vh;
+    }
+    .bio {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .detail-wrapper h1,
+    .bio h2 {
+      font-size: 26px;
+    }
+    .darkerBg,
+    .ligherBg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+    }
+  
+    .bio-extra h3,
+    .bio-extra div {
+      font-size: 20px;
+      height: 20%;
+      padding: 10px;
+    }
+    #header,
+    #footer {
+      font-size: 18px;
+    }
+    .single-page-image {
+      width: 100%;
+      height: 50%;
+      align-self: center;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    .character-item {
+      width: 100%;
+    }
+    #header,
+    #footer {
+      font-size: 16px;
+    }
 }
