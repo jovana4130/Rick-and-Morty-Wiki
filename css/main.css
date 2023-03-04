@@ -6,9 +6,9 @@
 }
 
 #wrapper {
-    background-image: url("../images/./103681-Rick-and-Morty-space-planet-planetary-rings.png");
+    background-image: url("./background-image/rick-and-morty-pickle-rick-wallpaper-scaled.jpeg");
     height: 100vh;
-    background-repeat: repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
