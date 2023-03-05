@@ -8,7 +8,7 @@
 #wrapper {
     background-image: url("./background-image/rick-and-morty-pickle-rick-wallpaper-scaled.jpeg");
     height: 100vh;
-    background-size: cover;
+    background-size: fit;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -278,5 +278,6 @@
 
     #header, #footer {
       font-size: 16px;
+    }
     }
 }
