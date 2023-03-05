@@ -66,6 +66,6 @@ export const renderSearchDropdown = (character) => {
   };
 
 export const clearDropdown = () => {
-    searchDropdownEl.innerHTML = "";
-    console.log(searchDropdownEl.innerHTML);
-  };
+searchDropdownEl.innerHTML = "";
+console.log(searchDropdownEl.innerHTML);
+};
