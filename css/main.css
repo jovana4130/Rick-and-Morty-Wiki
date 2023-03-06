@@ -31,6 +31,7 @@
 #search-wrapper {
     position: relative;
     width: 200px;
+    margin-top: 7px;
 }
 
 #search-dropdown {
@@ -55,7 +56,7 @@
 }
 
 .search-item:hover {
-    color: #03afc9;
+    color: #03afc8;
 }
 
 #home-button {
@@ -63,7 +64,7 @@
 }
 
 #home-button:hover {
-    color: #03afc9;
+    color: #03afc8;
 }
   
 #main-content {
@@ -83,7 +84,7 @@
     width: 100%;
 }
 
-  /* Character Styling */
+/*Characters*/
 #character-list {
     display: flex;
     flex-wrap: wrap;
@@ -104,6 +105,7 @@
     margin-bottom: 5%;
     width: 30%;
     border-radius: 13px;
+    box-shadow: #b6b4b4 10px;
 }
 
 .character-item img:hover, .character-item div:hover {
@@ -112,7 +114,7 @@
   
 .character-item p {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     padding: 10px;
     font-weight: 500;
     width: 100%;
@@ -127,12 +129,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: green;
+    color: rgb(30, 201, 30);
     width: 50%;
     font-size: 20px;
-    border: 1px solid green;
+    border: 1px solid rgb(7, 176, 66);
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 2px 3px #003300;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -148,15 +150,15 @@
 }
   
 .clicked {
-    background-color: green;
-    color: white;
+    background-color: rgb(30, 201, 30);
+    color: rgb(233, 229, 229);
 }
   
 .detail-wrapper {
     background-color: white;
     height: 85vh;
     width: 50vw;
-    border: 5px solid #03afc9;
+    border: 5px solid #03afc8;
     padding: 5px;
     display: flex;
     overflow: hidden;
@@ -165,13 +167,14 @@
 
 .detail-wrapper h1, h2 {
     font-size: 50px;
-    background-color: #03afc9;
+    background-color: #03afc8;
     color: #fff;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    border-radius: 13px;
 }
 
 .single-page-image {
@@ -180,6 +183,7 @@
     align-self: center;
     padding-bottom: 10px;
     padding-top: 10px;
+    border-radius: 13px;
 }
 
 .bio {
@@ -218,7 +222,6 @@
 }
 
 
-/* media queries */
 
 @media (max-width: 1024px) {
     .like {
