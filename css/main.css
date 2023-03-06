@@ -6,7 +6,7 @@
 }
 
 #wrapper {
-    background-image: url("./background-image/876589.jpg");
+    background-image: url("./images/background-image/background-image.jpg");
     height: 100vh;
     background-size: auto;
     background-repeat: no-repeat;
@@ -62,10 +62,11 @@
 
 #home-button {
     cursor: pointer;
+    color: #03afc8;
 }
 
 #home-button:hover {
-    color: #03afc8;
+    color: rgb(30, 201, 30);
 }
   
 #main-content {
@@ -196,7 +197,7 @@
 }
 
 .bio h2 {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .bio-extra {
@@ -209,7 +210,7 @@
 }
 
 .darkerBg {
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     width: 50%;
     /*background-color*/
@@ -218,7 +219,7 @@
 }
 
 .ligherBg {
-    font-size: 30px;
+    font-size: 20px;
     width: 50%;
     /*background-color:*/ 
     color: #03afc8;

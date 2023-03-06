@@ -7,8 +7,8 @@ class Character {
       this.species = species;
       this.origin = origin;
       this.gender = gender;
-  }
-}
+  };
+};
 
 export const getCharacters = () => {
   return fetch('https://rickandmortyapi.com/api/character')
@@ -18,8 +18,8 @@ export const getCharacters = () => {
   .then(function (characterRawObjects) {
       let slicedCharObj = characterRawObjects.results;
       return slicedCharObj.map(({name, id, image}) => new Character(name, id, image)) 
-  })
-}
+  });
+};
 
 export const getSingleCharacter = (id) => {
   return fetch(`https://rickandmortyapi.com/api/character/${id}`) 
@@ -36,9 +36,10 @@ export const getSingleCharacter = (id) => {
           characterRawObject.species,
           characterRawObject.gender,
           origin
-      )
-  })
-}
+      );
+  });
+};
+
 export const searchCharacter = (term) => {
   if (term === ''){
       return Promise.resolve([]);
@@ -51,4 +52,4 @@ export const searchCharacter = (term) => {
       let slicedSearchCharObj = characterRawObjects.results;
       return slicedSearchCharObj.map(({name, id, image}) => new Character(name,id, image));
   });
-}
+};

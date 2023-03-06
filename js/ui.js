@@ -1,4 +1,4 @@
-const mainContent = document.querySelector('#main-content')
+const mainContent = document.querySelector('#main-content');
 const searchDropdownEl = document.querySelector('#search-dropdown');
 
 export const renderHomePage = (characters) => {
@@ -61,7 +61,7 @@ export const renderSearchDropdown = (character) => {
             itemEl.textContent = maxTenChar.name;
             searchDropdownEl.appendChild(itemEl);
           });
-    }
+    };
     
   };
 
