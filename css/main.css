@@ -48,11 +48,12 @@
     padding: 5px;
     border-radius: 5px;
     width: 100%;
-    font-size: 20px;
+    font-size: 15px;
 }
   
 .search-item {
     border-bottom: 1px solid #3c3b3b;
+    font-size: 15px;
 }
 
 .search-item:hover {
@@ -163,6 +164,7 @@
     display: flex;
     overflow: hidden;
     flex-direction: column;
+    border-radius: 13px;
 }
 
 .detail-wrapper h1, h2 {
@@ -192,7 +194,7 @@
 }
 
 .bio h2 {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .bio-extra {
@@ -208,16 +210,16 @@
     font-size: 30px;
     text-align: center;
     width: 50%;
-    background-color: #f5f4e5;
-    color: #3d98ac;
+    /*background-color*/
+    color: #03afc8;
     font-weight: bold;
 }
 
 .ligherBg {
     font-size: 30px;
     width: 50%;
-    background-color: #f3f2e4;
-    color: #4cbad6;
+    /*background-color:*/ 
+    color: #03afc8;
     text-align: center;
 }
 
